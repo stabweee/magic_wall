@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Wall - Interactive Geographic Explorer</title>
+    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">MAGIC<span>WALL</span></div>
+            <nav id="breadcrumbs" class="breadcrumbs">
+                <span data-level="states" class="breadcrumb-item active">United States</span>
+                <span id="bc-county" class="breadcrumb-item hidden"></span>
+            </nav>
+            <div class="controls">
+                <div class="color-palette" id="color-palette">
+                    <button class="color-btn active" style="background-color: #ef4444;" data-color="#ef4444"
+                        title="Republican (Red)"></button>
+                    <button class="color-btn" style="background-color: #3b82f6;" data-color="#3b82f6"
+                        title="Democrat (Blue)"></button>
+                    <button class="color-btn" style="background-color: none; border: 1px dashed #4b5563;"
+                        data-color="none" title="Clear"></button>
+                </div>
+                <div class="action-buttons">
+                    <button id="calculate-btn" class="action-btn primary">Calculate</button>
+                    <button id="reset-btn" class="action-btn secondary">Reset</button>
+                </div>
+            </div>
+        </header>
+
+        <main id="map-container" class="map-container">
+            <div id="tooltip" class="tooltip hidden"></div>
+            <div id="results-overlay" class="results-overlay hidden">
+                <div class="results-content">
+                    <h3>Map Results</h3>
+                    <div id="results-list"></div>
+                    <button id="close-results" class="action-btn secondary">Close</button>
+                </div>
+            </div>
+            <svg id="magic-wall-svg"></svg>
+            <div class="bottom-bar-container">
+                <div class="bottom-bar-stats flex-between">
+                    <div class="stat-dem">
+                        <span class="stat-label">DEMOCRAT</span>
+                        <span id="dem-count" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-center">
+                        <span class="stat-title">COUNTIES WON</span>
+                    </div>
+                    <div class="stat-rep text-right">
+                        <div style="display: flex; flex-direction: column; align-items: flex-end;">
+                            <span class="stat-label" style="text-align: right;">REPUBLICAN</span>
+                            <span id="rep-count" class="stat-value">0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-bar-wrap">
+                    <div id="dem-progress" class="progress-fill dem" style="width: 50%;"></div>
+                    <div class="progress-center-line"></div>
+                    <div id="rep-progress" class="progress-fill rep" style="width: 50%;"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="app-info">
+            <span id="current-view-label">Click on a state to color counties • State color shows county majority</span>
+            <div class="stats">
+                <span id="item-count">50 States</span>
+            </div>
+        </footer>
+    </div>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson-client@3"></script>
+    <script src="data.js?v=1"></script>
+    <script src="app.js?v=1"></script>
+</body>
+
+</html>
