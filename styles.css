@@ -30,7 +30,7 @@ body {
   flex-direction: column;
   height: 100vh;
   padding: 1rem;
-  max-width: 1600px;
+  max-width: 80vw;
   margin: 0 auto;
   overflow: hidden;
 }

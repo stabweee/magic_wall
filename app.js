@@ -42,8 +42,8 @@ svg.on("dblclick.zoom", null);
 const showTooltip = (event, text, additionalInfo = "") => {
   tooltip.innerHTML = `<strong>${text}</strong>${additionalInfo ? `<br><span style="color: var(--accent)">${additionalInfo}</span>` : ""}`;
   tooltip.classList.remove("hidden");
-  tooltip.style.left = event.pageX + 10 + "px";
-  tooltip.style.top = event.pageY - 30 + "px";
+  tooltip.style.left = event.pageX - 100 + "px";
+  tooltip.style.top = event.pageY - 100 + "px";
 };
 const hideTooltip = () => tooltip.classList.add("hidden");
 
@@ -128,7 +128,7 @@ function renderStates() {
 
   viewLabel.innerText =
     "Click on a state to see counties • State color shows county majority";
-  itemCount.innerText = "Forked from the big C";
+  itemCount.innerText = "Cloned from the big C";
 
   const stateGroups = g
     .selectAll(".state-group")
