@@ -22,16 +22,13 @@
             </nav>
             <div class="controls">
                 <div class="color-palette" id="color-palette">
-                    <button class="color-btn active" style="background-color: #ef4444;" data-color="#ef4444"
-                        title="Republican (Red)"></button>
-                    <button class="color-btn" style="background-color: #3b82f6;" data-color="#3b82f6"
-                        title="Democrat (Blue)"></button>
-                    <button class="color-btn" style="background-color: none; border: 1px dashed #4b5563;"
-                        data-color="none" title="Clear"></button>
-                </div>
-                <div class="action-buttons">
-                    <button id="calculate-btn" class="action-btn primary">Calculate</button>
-                    <button id="reset-btn" class="action-btn secondary">Reset</button>
+                    <div class="action-buttons">
+                        <button id="calculate-btn" class="action-btn primary">Calculate</button>
+                        <select id="year-menu" class="action-btn secondary" name="Year">
+                            <option value="2020" class="menu-btn">2020 Election</option>
+                            <option value="2024" class="menu-btn">2024 Election</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </header>
@@ -71,15 +68,16 @@
         </main>
 
         <footer class="app-info">
-            <span id="current-view-label">Click on a state to color counties • State color shows county majority</span>
+            <span id="current-view-label">State color shows county majority</span>
             <div class="stats">
-                <span id="item-count">50 States</span>
+                <span id="item-count">Forked from the big C</span>
             </div>
         </footer>
     </div>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://unpkg.com/topojson-client@3"></script>
-    <script src="data.js?v=1"></script>
+    <script src="data2020.js?v=1"></script>
+    <script src="data2024.js?v=1"></script>
     <script src="app.js?v=1"></script>
 </body>
 
