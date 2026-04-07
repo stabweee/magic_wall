@@ -32,7 +32,9 @@ const zoom = d3
     const { transform } = event;
     g.attr("transform", transform);
 
-    svg.selectAll("text").style("font-size", `${12 / transform.k ** 0.7}px`);
+    svg
+      .selectAll("text")
+      .style("font-size", `${window.innerWidth / 192 / transform.k ** 0.2}px`);
   });
 
 svg.call(zoom);
@@ -215,7 +217,6 @@ function getStateStats(stateId, allCounties) {
   const majorityColor = red >= blue ? "#ef4444" : "#3b82f6";
   const majorityCount = Math.max(red, blue);
   const majorityPercentage = (majorityCount / totalColored) * 100;
-  console.log(totalColored, red, blue, stateId);
 
   return {
     totalColored,
